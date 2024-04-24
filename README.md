@@ -88,6 +88,7 @@ To set up and run the application locally, follow these steps:
 
 - **Get All Rentals**: `GET /api/rentals/`
 - **Get Rental by Renter Name**: `GET /api/rentals/by-renterName?name={name}`
+- **Get Overdue Rentals**: `GET /api/rentals/overdue-rentals`
 - **Add Rental using Book Id**: `POST /api/rentals?book_id={id}`
   - Request Body:
     ```json
@@ -106,6 +107,6 @@ To set up and run the application locally, follow these steps:
     ```
 - **Delete Rental**: `DELETE /api/rentals?rental_id={id}`
 
-## All the Sample Requests are present in Postman Collection folder
+## All the Sample Requests are present in the Postman Collection folder
 
 ---
