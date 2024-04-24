@@ -25,15 +25,19 @@ public class AuthorService {
 		return authorRepository.save(author);
 	}
 	public Author updateAuthor(Long id, Author updatedAuthor) {
-		Optional<Author>existingAuthorOptional = authorRepository.findById(id);
-		if(existingAuthorOptional.isPresent()) {
-			Author existingAuthor = existingAuthorOptional.get();
-			existingAuthor.setName(updatedAuthor.getName());
-			existingAuthor.setBiography(updatedAuthor.getBiography());
-			return authorRepository.save(existingAuthor);
-		}else {
-			return null;
-		}
+	    try {
+	        Optional<Author> existingAuthorOptional = authorRepository.findById(id);
+	        if (existingAuthorOptional.isPresent()) {
+	            Author existingAuthor = existingAuthorOptional.get();
+	            existingAuthor.setName(updatedAuthor.getName());
+	            existingAuthor.setBiography(updatedAuthor.getBiography());
+	            return authorRepository.save(existingAuthor);
+	        } else {
+	            return null;
+	        }
+	    } catch (Exception e) {
+	        throw new RuntimeException("Failed to update author with id: " + id, e);
+	    }
 	}
 	public boolean deleteAuthor(Long id) {
 		if(authorRepository.existsById(id)) {

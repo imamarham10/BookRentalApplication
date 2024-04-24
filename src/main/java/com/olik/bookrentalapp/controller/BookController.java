@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.olik.bookrentalapp.models.Author;
 import com.olik.bookrentalapp.models.Book;
+import com.olik.bookrentalapp.service.AuthorService;
 import com.olik.bookrentalapp.service.BookService;
 
 @RestController
@@ -24,6 +26,8 @@ import com.olik.bookrentalapp.service.BookService;
 public class BookController {
 	@Autowired
 	private BookService bookService;
+	@Autowired
+	private AuthorService authorService;
 
 	@GetMapping()
 	public ResponseEntity<?> getAllBooks() {
@@ -76,9 +80,15 @@ public class BookController {
 	}
 	@PostMapping("/{id}")
 	public ResponseEntity<?> addBook(@RequestBody Book book, @PathVariable Long id) {
-		if(book == null || id == null) {
-			return ResponseEntity.badRequest().body("Book details and author id are required!");
-		}
+		
+		// Check if the author exists
+	    Author author = authorService.getAuthorById(id);
+	    if (author == null) {
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Author with ID " + id + " not found");
+	    }
+	    if (book == null) {
+	        return ResponseEntity.badRequest().body("Book details are required!");
+	    }
 		Book savedBook = bookService.addBook(book, id);
 		if(savedBook!=null) {
 			return ResponseEntity.created(URI.create("/api/books/" + savedBook.getId())).body(savedBook);
@@ -108,8 +118,4 @@ public class BookController {
 	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Book with ID " + id + " not found");
 	    }
 	}
-
-
-
-
 }
