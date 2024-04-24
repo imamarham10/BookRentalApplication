@@ -1,0 +1,510 @@
+{
+	"info": {
+		"_postman_id": "1b869cf3-196e-4053-95cb-ed8fba6b9b22",
+		"name": "BookRentalApplication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Author",
+			"id": "4296a24c-e6aa-4f61-a748-b6b0f8160e70",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"John Doe\",\r\n    \"biography\":\"Test Author\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/author"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book By Id",
+			"id": "7e68e3eb-6cac-4ae3-a0ad-fe2d6d38f55e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"value": "W4cOOLzJBfhOJ9F0KtMsh1plsZlXrYpc",
+						"in": "header",
+						"key": "apiKey"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books/by-id?id=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"by-id"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Rental by Rental Id",
+			"id": "8f357176-2f14-413d-b5c6-0c92968cccba",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/rentals?rental_id=6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"rentals"
+					],
+					"query": [
+						{
+							"key": "rental_id",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Overdue Rentals",
+			"id": "8ede41c6-eacd-426c-97fe-070c496d64dc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/rentals/overdue-rentals"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Rentals by Renter Name",
+			"id": "7747c577-22a4-48cb-8db4-fe38977178bc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/rentals/by-renterName?name=Arham Imam",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"rentals",
+						"by-renterName"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Arham Imam"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Return Date in Rental data",
+			"id": "3c7452c5-ba88-4a75-86fc-64abefeee96e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"returnDate\": \"2024-04-23\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/rentals?rental_id=8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"rentals"
+					],
+					"query": [
+						{
+							"key": "rental_id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all the Rentals",
+			"id": "35ef0538-c6cc-4c27-9caf-791c9d7e6e7a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/rentals"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all books ",
+			"id": "f23fa6d9-2b88-41c5-8281-44b9fc795b7c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"value": "W4cOOLzJBfhOJ9F0KtMsh1plsZlXrYpc",
+						"in": "header",
+						"key": "apiKey"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/books"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Rental data using Book Id",
+			"id": "2d30ae2e-8084-4896-9935-2f42036b06c9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"renterName\": \"John\",\r\n    \"rentalDate\": \"2024-03-30\",\r\n    \"returnDate\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/rentals?book_id=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"rentals"
+					],
+					"query": [
+						{
+							"key": "book_id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all currently rented books",
+			"id": "c1a88a5c-d107-40e3-acdd-58bdb7ab3c13",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"value": "W4cOOLzJBfhOJ9F0KtMsh1plsZlXrYpc",
+						"in": "header",
+						"key": "apiKey"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/books/currently-rented"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all books available for rent",
+			"id": "dbe656b3-27f4-4c96-9fe4-9edcf1f73fdd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"value": "W4cOOLzJBfhOJ9F0KtMsh1plsZlXrYpc",
+						"in": "header",
+						"key": "apiKey"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/books/available-for-rent"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Book using author id",
+			"id": "b7469b7e-47e1-40c0-ac0a-4ef89843a94d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Arham's Book\",\r\n    \"isbn\": \"978-7-16-148410-9\",\r\n    \"publicationYear\": 2024\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/books/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a book with book id",
+			"id": "a8bbb9af-9d26-4411-a29e-7d1084e5f4e4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/api/books/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Update a book with book id and author id",
+			"id": "cf29670d-190f-4de1-a0cc-5ac98d63c779",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Sample Book 2\",\r\n    \"isbn\": \"978-3-16-148410-2\",\r\n    \"publicationYear\": 2021,\r\n    \"availableForRent\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/books/1?author_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"1"
+					],
+					"query": [
+						{
+							"key": "author_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all authors record",
+			"id": "84482d49-523b-4d77-894e-1f2169806605",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"key": "apiKey",
+						"value": "W4cOOLzJBfhOJ9F0KtMsh1plsZlXrYpc"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Arham Imam\",\r\n    \"biography\":\"Developer\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/author"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all book record by Author-Name",
+			"id": "4baf1b3b-2670-45a8-bfed-af1ef9953474",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"value": "W4cOOLzJBfhOJ9F0KtMsh1plsZlXrYpc",
+						"in": "header",
+						"key": "apiKey"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books/by-author?name=John",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"by-author"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "John"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete author record with author id",
+			"id": "74daecfd-0a95-4724-8d7c-a3a8b6903147",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/author?author_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"author"
+					],
+					"query": [
+						{
+							"key": "author_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update author record with author id",
+			"id": "fb211e1a-de07-4725-a937-2aed8a5f0fb6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Test Author\",\r\n    \"biography\":\"Test data\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/author?author_id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"author"
+					],
+					"query": [
+						{
+							"key": "author_id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
